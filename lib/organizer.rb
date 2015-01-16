@@ -1,18 +1,44 @@
 class Album
 
-  @@album = []
+  @@albums = []
 
-  define_method(:initialize) do
+  attr_reader(:title, :artist)
+
+  define_method(:initialize) do |attributes|
+    @title = attributes.fetch(:key_a)
+    @artist = attributes.fetch(:key_b)
   end
 
   define_singleton_method(:all) do
-    @@album
+    @@albums
   end
+
+  define_method(:save) do
+    @@albums.push(self)
+  end
+
+  define_singleton_method(:clear) do
+    @@albums = []
+  end
+
+  define_singleton_method(:search_title) do |record|
+    found_album = nil
+    @@albums.each() do |album|
+      if album.title() == record
+        found_album = album
+      end
+    end
+    found_album
+  end
+
+
 end
+
+
 
 class Artist
 
-  @@artist = []
+  @@artists = []
 
   attr_reader(:members, :band)
 
@@ -22,20 +48,20 @@ class Artist
   end
 
   define_singleton_method(:all) do
-    @@artist
+    @@artists
   end
 
   define_method(:save) do
-    @@artist.push(self)
+    @@artists.push(self)
   end
 
   define_singleton_method(:clear) do
-    @@artist = []
+    @@artists = []
   end
 
   define_singleton_method(:search_members) do |musician|
     found_band = nil
-    @@artist.each() do |artist|
+    @@artists.each() do |artist|
       if artist.members().include?(musician)
         found_band = artist.band()
       end
@@ -44,3 +70,21 @@ class Artist
   end
 
 end
+
+
+
+# define_singleton_method(:search_members) do |musician|
+#   found_band = nil
+#   @@artists.each() do |artist|
+    # if artist.members().include?(musician)
+    # found_band = artist.band()
+    # if artist.members().each() do |member|
+    #   member.include?(musician)
+    #   found_band = artist.band()
+    # end
+    # else
+    #    found_band = "This artist is not found in this collection."
+#   end
+# end
+# found_band
+# end
