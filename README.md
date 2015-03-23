@@ -16,7 +16,7 @@ sinatra
 sinatra-contrib
 ```
 
-If you want to run the included Gemfile, enter the following statements into
+To run the included Gemfile, enter the following statements into
 the command line:
 ```ruby
 gem install bundler
@@ -29,8 +29,13 @@ was used.
 Usage
 -----
 
-Upon completion of the above steps in the Installation section, open
-up your preferred web browser and enter the following address:
+Upon completion of the above steps in the Installation section, enter the following statement into the command line:
+
+```ruby
+Ruby app.rb
+```
+
+Next, open a Web browser and enter the following address:
 
 ```url
 localhost:4567/
@@ -41,7 +46,7 @@ Enter an album title, artist, or band member. Observe the results.
 Known Bugs
 ----------
 
-None as of 2014-01-15.
+None as of 2015-01-15.
 
 Author
 ------
@@ -51,4 +56,4 @@ Benjamin Herson and J.TURNER
 License
 -------
 
-MIT license.
+MIT license
